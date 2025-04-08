@@ -1,10 +1,14 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
+
+
 bool is_sorted(std::vector<int> const& vec) { return std::is_sorted(vec.begin(), vec.end()); }
 
-void merge_sort_merge(std::vector<float> & vec, size_t const left, size_t const middle, size_t const right) {
-    std::vector<float> left_array(vec.begin() + left, vec.begin() + middle + 1);
-    std::vector<float> right_array(vec.begin() + middle + 1, vec.begin() + right + 1);
+
+void merge_sort_merge(std::vector<int> & vec, size_t const left, size_t const middle, size_t const right) {
+    std::vector<int> left_array(vec.begin() + left, vec.begin() + middle + 1);
+    std::vector<int> right_array(vec.begin() + middle + 1, vec.begin() + right + 1);
     
     size_t left_index = 0;
     size_t right_index = 0;
@@ -34,7 +38,7 @@ void merge_sort_merge(std::vector<float> & vec, size_t const left, size_t const 
     }
 }
 
-void merge_sort(std::vector<float> & vec, size_t const left, size_t const right) {
+void merge_sort(std::vector<int> & vec, size_t const left, size_t const right) {
     if (left >= right) {
         return;
     }
@@ -47,6 +51,17 @@ void merge_sort(std::vector<float> & vec, size_t const left, size_t const right)
     merge_sort_merge(vec, left, middle, right);
 }
 
-void merge_sort(std::vector<float> & vec) {
+void merge_sort(std::vector<int> & vec) {
     merge_sort(vec, 0, vec.size() - 1);
+}
+
+int main(){
+    std::vector<int> array{2,6,3,7,4,1};
+    merge_sort(array);
+    if (is_sorted(array)) {
+        std::cout << "Le tableau est trie" << std::endl;
+    } 
+    else {
+        std::cout << "Le tableau n'est pas trie" << std::endl;
+    }
 }

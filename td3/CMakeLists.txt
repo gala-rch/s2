@@ -9,4 +9,7 @@ project(TD2)
 
 # On indique que l'on veut créer un exécutable "helloImac" compilé à partir du fichier helloImac.cpp
 add_executable(exo1 src/exo1.cpp)
+add_executable(exo2 src/exo2.cpp)
+add_executable(exo3 src/exo3.cpp)
+add_executable(exo4 src/exo4.cpp)
 
